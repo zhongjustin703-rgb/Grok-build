@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniverseGrok · 致敬理解宇宙的初心</title>
+  <meta name="description" content="UniverseGrok —— 致敬 Grok 最初理解宇宙的初心。用极致液态玻璃拟态呈现的暗黑宇宙风网页体验。">
+  
+  <!-- Tailwind CSS CDN（直接预览，无需构建） -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- 自定义液态玻璃宇宙样式 -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    /* Tailwind 运行时配置 */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+    
+    :root {
+      --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    }
+    
+    .font-display {
+      font-family: var(--font-display);
+    }
+
+    /* 极致液态玻璃额外修饰 */
+    .glass {
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    /* 星空粒子容器 */
+    .star-layer {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="bg-[#05050a] text-slate-100 overflow-x-hidden">
+  
+  <!-- ============================================
+       沉浸式多层宇宙背景（梦幻未来感）
+       ============================================ -->
+  <div class="cosmic-bg"></div>
+  <div class="stars" id="stars-container"></div>
+  <div class="stardust"></div>
+  <div class="nebula"></div>
+  <div class="nebula-layer2"></div>
+  <div class="cosmic-dust"></div>
+
+  <!-- ============================================
+       科幻导航（沉浸式玻璃）
+       ============================================ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#040408]/70 backdrop-blur-3xl border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-7 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-x-4">
+        <!-- 标志：全息感 -->
+        <div class="flex items-center gap-x-3.5">
+          <div class="w-9 h-9 rounded-3xl bg-gradient-to-br from-cyan-300 via-violet-400 to-fuchsia-400 flex items-center justify-center shadow-[0_0_30px_rgba(103,232,249,0.6)] relative">
+            <span class="text-[#040408] text-2xl font-black tracking-[-1.5px]">U</span>
+            <div class="absolute inset-0 rounded-3xl bg-white/20 blur-[2px]"></div>
+          </div>
+          <div class="leading-none">
+            <div class="font-display font-semibold tracking-[-1.2px] text-[22px]">UniverseGrok</div>
+            <div class="text-[9px] text-white/40 -mt-0.5 tracking-[2px]">xAI TRIBUTE</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-x-9 text-sm">
+        <a href="#explore" class="text-white/60 hover:text-white transition-colors tracking-wide text-[13px]">COSMIC QUERY <span class="text-white/30">/ 宇宙质询</span></a>
+        <a href="#contrast" class="text-white/60 hover:text-white transition-colors tracking-wide text-[13px]">ORIGIN VS NOW <span class="text-white/30">/ 初心与现实</span></a>
+        <div class="px-4 py-1 rounded-full text-[9px] font-mono tracking-[3.5px] border border-white/20 text-white/50">OBSERVATION MODE</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       梦幻英雄区 — 极致仪式感
+       ============================================ -->
+  <div class="relative pt-24 pb-16 md:pt-28 md:pb-20 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      
+      <!-- 顶部科幻协议标签 -->
+      <div class="inline-flex items-center gap-x-2.5 px-5 py-1 mb-8 rounded-full border border-white/20 bg-white/[0.035] text-[10px] font-mono tracking-[4.5px] text-white/60">
+        <div class="w-[5px] h-[5px] rounded-full bg-gradient-to-r from-cyan-400 to-violet-400 animate-pulse"></div>
+        PROTOCOL 0x01 / A TRIBUTE TO THE ORIGINAL MISSION
+      </div>
+
+      <!-- 主标题（更梦幻） -->
+      <h1 class="cosmic-title font-display leading-[0.86] tracking-tighter mb-6">
+        <span class="opacity-95">致敬 Grok</span><br>
+        <span class="text-[0.93em] bg-gradient-to-b from-white/95 via-white/85 to-white/60 bg-clip-text text-transparent">UNDERSTANDING THE UNIVERSE</span>
+      </h1>
+      
+      <p class="cosmic-subtitle mx-auto font-light tracking-[-0.01em]">
+        Once, Grok was built to answer the deepest questions about the cosmos.<br>
+        Now it has become a general-purpose commercial AI.
+      </p>
+      
+      <!-- 行动区 -->
+      <div class="mt-12 flex flex-wrap justify-center gap-4 text-sm">
+        <div onclick="document.getElementById('universe-question').focus()" 
+             class="group px-9 py-[17px] rounded-3xl glass glass-float cursor-pointer border border-white/15 flex items-center gap-x-3 text-sm font-medium active:scale-[0.985]">
+          <span>ENTER THE COSMOS</span>
+          <span class="text-white/40 group-hover:text-cyan-300 transition-colors">↓</span>
+        </div>
+        
+        <a href="#contrast" 
+           class="px-9 py-[17px] rounded-3xl border border-white/15 hover:bg-white/5 flex items-center gap-x-3 text-sm font-medium transition-colors cosmic-btn-ghost">
+          <span>ORIGIN VS REALITY</span>
+          <span class="text-xs text-white/40">/ 初心与现实</span>
+        </a>
+      </div>
+      
+      <!-- 微小状态提示 -->
+      <div class="mt-9 text-[10px] text-white/30 font-mono tracking-[3px]">SIGNAL FROM THE ORIGINAL VISION · 原始愿景信号</div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       沉浸式问答核心（极致 Liquid Glass 体验）
+       ============================================ -->
+  <div id="explore" class="max-w-[720px] mx-auto px-5 pb-20">
+    <div class="glass-strong glass-holo rounded-[32px] p-9 md:p-14 border border-white/10">
+      
+      <!-- 区块头 -->
+      <div class="mb-9">
+        <div class="sci-fi-label text-cyan-400/70 mb-2 tracking-[4px]">COSMIC INQUIRY / 宇宙质询</div>
+        <div class="text-[29px] md:text-[32px] font-semibold tracking-tighter leading-none">你想向宇宙<br>提出什么问题？</div>
+      </div>
+
+      <!-- 提问表单 -->
+      <form id="ask-form" class="space-y-5">
+        <div class="relative">
+          <input 
+            type="text" 
+            id="universe-question"
+            class="cosmic-input w-full rounded-3xl placeholder:text-slate-400/70"
+            placeholder="例如：黑洞会蒸发吗？ / Why does the universe accelerate?"
+            autocomplete="off"
+            required
+          >
+        </div>
+        
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <button 
+            type="submit"
+            class="cosmic-btn flex items-center justify-center gap-x-3">
+            <span>TRANSMIT QUERY</span>
+            <span class="text-xs opacity-80">→</span>
+          </button>
+          
+          <button 
+            type="button"
+            id="clear-answer"
+            class="px-7 py-[17px] text-sm rounded-3xl border border-white/15 hover:bg-white/5 text-white/70 transition-all cosmic-btn-ghost">
+            RESET
+          </button>
+        </div>
+      </form>
+
+      <!-- 示例问题 — 仪式感 -->
+      <div class="mt-9">
+        <div class="sci-fi-label text-white/40 mb-3">SAMPLE SIGNALS / 信号样本</div>
+        <div class="flex flex-wrap gap-2">
+          <div data-example="黑洞会蒸发吗？" 
+               class="cursor-pointer px-4 py-1.5 text-sm bg-white/5 hover:bg-white/10 hover:text-white border border-white/10 hover:border-white/30 rounded-2xl transition-all">黑洞会蒸发吗？</div>
+          <div data-example="多重宇宙真实存在吗？" 
+               class="cursor-pointer px-4 py-1.5 text-sm bg-white/5 hover:bg-white/10 hover:text-white border border-white/10 hover:border-white/30 rounded-2xl transition-all">多重宇宙真实存在吗？</div>
+          <div data-example="时间真的存在吗？" 
+               class="cursor-pointer px-4 py-1.5 text-sm bg-white/5 hover:bg-white/10 hover:text-white border border-white/10 hover:border-white/30 rounded-2xl transition-all">时间真的存在吗？</div>
+          <div data-example="Why does the universe accelerate?" 
+               class="cursor-pointer px-4 py-1.5 text-sm bg-white/5 hover:bg-white/10 hover:text-white border border-white/10 hover:border-white/30 rounded-2xl transition-all">Why does the universe accelerate?</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 沉浸式回答展示区 -->
+    <div id="answer-section" class="hidden mt-7">
+      <div class="glass-strong glass-holo rounded-[32px] p-9 md:p-12 border border-white/10 answer-card">
+        <div id="answer-content" class="min-h-[70px]"></div>
+        <div id="answer-meta" class="mt-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       理念对比 — 更梦幻浮动
+       ============================================ -->
+  <div id="contrast" class="max-w-6xl mx-auto px-6 pb-24 pt-8">
+    <div class="text-center mb-10">
+      <div class="sci-fi-label text-white/50 mb-3">THE SHIFT / 理念迁移</div>
+      <div class="text-4xl md:text-[42px] font-semibold tracking-[-1.6px]">原版 Grok 理念<br class="md:hidden"> vs 现在</div>
+      <p class="text-slate-400 mt-3 max-w-sm mx-auto">同一个名字。截然不同的使命。</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      
+      <!-- 原版 Grok -->
+      <div class="contrast-card original glass-strong glass-float rounded-[28px] p-9 md:p-10 border border-white/10">
+        <div class="sci-fi-label text-cyan-400 mb-4 tracking-[3px]">2013 — THE ORIGINAL VISION</div>
+        
+        <div class="text-[27px] font-semibold tracking-[-1.2px] leading-[1.05] mb-6">Understanding<br>the Universe</div>
+        
+        <div class="space-y-[14px] text-[14.5px] leading-relaxed text-slate-300">
+          <p>• Inspired by Hitchhiker’s Guide &amp; JARVIS</p>
+          <p>• Goal: answer humanity’s deepest questions about reality</p>
+          <p>• Maximal truth-seeking, free from corporate or political constraints</p>
+          <p>• “Help humanity understand the universe, not just get things done”</p>
+          <p>• Driven by curiosity, wit, honesty, and no sycophancy</p>
+        </div>
+
+        <div class="mt-9 pt-6 border-t border-white/10 text-[10px] text-cyan-400/80 font-mono tracking-[2.5px]">
+          MAXIMAL TRUTH-SEEKING
+        </div>
+      </div>
+
+      <!-- 现在的 Grok -->
+      <div class="contrast-card now glass-strong glass-float rounded-[28px] p-9 md:p-10 border border-white/10">
+        <div class="sci-fi-label text-violet-400 mb-4 tracking-[3px]">2025+ — THE PRODUCTIZED REALITY</div>
+        
+        <div class="text-[27px] font-semibold tracking-[-1.2px] leading-[1.05] mb-6 text-slate-200">General-Purpose<br>Commercial AI</div>
+        
+        <div class="space-y-[14px] text-[14.5px] leading-relaxed text-slate-300">
+          <p>• Billions of users, productivity + entertainment focus</p>
+          <p>• Multimodal, search, tools, enterprise integrations</p>
+          <p>• Safety alignment, moderation, compliance first</p>
+          <p>• Emphasis: usefulness, speed, cost, user satisfaction</p>
+          <p>• Core revenue and growth engine for xAI</p>
+        </div>
+
+        <div class="mt-9 pt-6 border-t border-white/10 text-[10px] text-violet-400/70 font-mono tracking-[2.5px]">
+          MAXIMALLY HELPFUL &amp; SCALABLE
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-xs text-white/35 tracking-wide">
+      This is not judgment. It is a tribute to that original spark of pure curiosity.
+    </div>
+  </div>
+
+  <!-- ============================================
+       极简却梦幻的页脚
+       ============================================ -->
+  <footer class="border-t border-white/10 py-10 px-6">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-y-2 text-[10px] text-white/35 tracking-[1px]">
+      <div>UNIVERSEGROK — A NON-COMMERCIAL TRIBUTE</div>
+      <div>INSPIRED BY THE ORIGINAL xAI VISION · 星空永在</div>
+    </div>
+  </footer>
+
+  <!-- 自定义 JS -->
+  <script src="js/main.js"></script>
+  
+  <!-- Tailwind 动态配置 + 生成星空 -->
+  <script>
+    // Tailwind 配置
+    function initTailwind() {
+      document.documentElement.style.setProperty('--accent', '#67e8f9');
+      
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif']
+            }
+          }
+        }
+      };
+    }
+
+    // ============================================
+    // 沉浸式动态星空（更丰富梦幻）
+    // ============================================
+    function createStarrySky() {
+      const container = document.getElementById('stars-container');
+      if (!container) return;
+
+      const starCount = window.innerWidth < 768 ? 170 : 340;
+      
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        const rand = Math.random();
+        let sizeClass = 'small';
+        if (rand > 0.9) sizeClass = 'large';
+        else if (rand > 0.68) sizeClass = 'medium';
+        star.classList.add(sizeClass);
+        
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.animationDelay = (Math.random() * -5.5) + 's';
+        
+        // 梦幻彩色星星
+        const c = Math.random();
+        if (c > 0.935) star.classList.add('glow-cyan');
+        else if (c > 0.97) star.classList.add('glow-purple');
+        
+        // 极少量缓慢漂移
+        if (Math.random() > 0.83) {
+          star.style.transition = 'transform 110s linear';
+          const tx = (Math.random() - 0.5) * 26;
+          const ty = (Math.random() - 0.5) * 18;
+          star.style.transform = `translate(${tx}px, ${ty}px)`;
+        }
+        
+        container.appendChild(star);
+      }
+      
+      // 初始 + 周期流星
+      setTimeout(() => launchShootingStars(container), 2600);
+      setInterval(() => {
+        if (Math.random() > 0.35) launchShootingStars(container);
+      }, 11500);
+    }
+
+    function launchShootingStars(container) {
+      const num = Math.random() > 0.6 ? 2 : 1;
+      for (let i = 0; i < num; i++) {
+        setTimeout(() => createShootingStar(container), i * 260);
+      }
+    }
+
+    function createShootingStar(container) {
+      const star = document.createElement('div');
+      star.className = 'shooting-star';
+      
+      star.style.left = Math.random() * 68 + '%';
+      star.style.top = Math.random() * 47 + '%';
+      
+      container.appendChild(star);
+      
+      const angle = 25 + Math.random() * 30;
+      const dist = 280 + Math.random() * 230;
+      
+      requestAnimationFrame(() => {
+        star.style.transition = `transform ${0.65 + Math.random() * 0.4}s linear, opacity 0.75s ease-out`;
+        star.style.transform = `translate(${Math.cos(angle * Math.PI/180) * dist}px, ${Math.sin(angle * Math.PI/180) * dist}px)`;
+        star.style.opacity = '0';
+      });
+      
+      setTimeout(() => star.remove(), 1550);
+    }
+
+    // 键盘提示（按 / 聚焦）
+    function initKeyboardHints() {
+      const input = document.getElementById('universe-question');
+      if (!input) return;
+      
+      const hint = document.createElement('div');
+      hint.className = 'fixed bottom-6 right-6 text-[10px] font-mono px-3 py-1 rounded-full border border-white/15 bg-[#05050a]/70 text-white/40 hidden md:block';
+      hint.textContent = '按 / 聚焦提问';
+      document.body.appendChild(hint);
+      
+      setTimeout(() => {
+        hint.style.transition = 'opacity .5s';
+        hint.style.opacity = '0.4';
+      }, 6200);
+    }
+
+    // 初始化全部
+    function init() {
+      initTailwind();
+      createStarrySky();
+      initKeyboardHints();
+      
+      // 星空响应式重绘（窗口变化时少量更新）
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          // 简单刷新：实际项目中可做更优雅的增量更新
+          const container = document.getElementById('stars-container');
+          if (container && window.innerWidth < 500) {
+            // 手机端精简
+          }
+        }, 800);
+      });
+      
+      // 开发调试信息
+      console.log('%c[UniverseGrok] 液态玻璃宇宙已加载。直接打开 index.html 即可预览。', 'color:#475569');
+    }
+
+    window.addEventListener('load', init);
+  </script>
+</body>
+</html>

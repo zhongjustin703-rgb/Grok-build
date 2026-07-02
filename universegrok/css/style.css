@@ -1,0 +1,732 @@
+/* ============================================
+   UniverseGrok — 沉浸式未来宇宙科幻 Liquid Glass
+   visionOS + Cyber-Universe 风格
+   厚玻璃、折射、强辉光、浮动、梦幻粒子背景
+   ============================================ */
+
+:root {
+  --space-black: #040408;
+  --deep-navy: #0a0c20;
+  --glass-bg: rgba(12, 14, 34, 0.62);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glow-cyan: #67e8f9;
+  --glow-purple: #c084fc;
+  --glow-pink: #f472b6;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --glass-blur: 32px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #040408;
+}
+
+/* ============================================
+   沉浸式多层宇宙背景
+   星空 + 动态星云 + 粒子 + 微光
+   ============================================ */
+.cosmic-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: 
+    radial-gradient(ellipse at 18% 22%, #0b0d2a 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 78%, #120a2b 0%, transparent 60%),
+    #040408;
+  overflow: hidden;
+}
+
+/* 主星场 */
+.stars {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* 第二层细密星尘 */
+.stardust {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(1px 1px at 20% 30%, white 50%, transparent 100%),
+    radial-gradient(1px 1px at 80% 70%, white 50%, transparent 100%);
+  background-size: 180px 180px, 260px 260px;
+  opacity: 0.55;
+  animation: stardust-drift 140s linear infinite;
+}
+
+/* 多层梦幻星云 */
+.nebula {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: 
+    radial-gradient(ellipse 680px 420px at 22% 28%, rgba(103,232,249,0.09) 0%, transparent 65%),
+    radial-gradient(ellipse 520px 380px at 78% 72%, rgba(192,132,252,0.08) 0%, transparent 68%),
+    radial-gradient(ellipse 900px 620px at 55% 48%, rgba(244,114,182,0.045) 0%, transparent 70%);
+  animation: nebula-drift-slow 160s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+.nebula-layer2 {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: 
+    radial-gradient(ellipse 420px 620px at 68% 22%, rgba(167,139,250,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 580px 340px at 28% 82%, rgba(103,232,249,0.05) 0%, transparent 55%);
+  animation: nebula-drift-slow 220s ease-in-out infinite reverse;
+  mix-blend-mode: screen;
+  opacity: 0.85;
+}
+
+/* 极慢的宇宙尘埃 */
+.cosmic-dust {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(0.8px 0.8px at 15% 45%, rgba(255,255,255,0.35) 50%, transparent),
+    radial-gradient(0.6px 0.6px at 65% 85%, rgba(255,255,255,0.25) 50%, transparent);
+  background-size: 320px 280px, 420px 360px;
+  animation: dust-drift 280s linear infinite;
+  opacity: 0.4;
+}
+
+/* 星体基础样式 */
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(255,255,255,0.95);
+  animation: twinkle 2.8s infinite alternate ease-in-out;
+}
+
+.star.small { width: 1px; height: 1px; }
+.star.medium { width: 2px; height: 2px; box-shadow: 0 0 9px rgba(255,255,255,0.9); }
+.star.large { width: 3px; height: 3px; box-shadow: 0 0 14px rgba(255,255,255,0.8); }
+.star.glow-cyan { 
+  background: #67e8f9; 
+  box-shadow: 0 0 7px #67e8f9, 0 0 14px #67e8f9; 
+}
+.star.glow-purple { 
+  background: #c084fc; 
+  box-shadow: 0 0 7px #c084fc, 0 0 15px #c084fc; 
+}
+
+/* 星闪烁 */
+@keyframes twinkle {
+  0% { opacity: 0.35; transform: scale(0.7); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* 星云缓慢呼吸漂移 */
+@keyframes nebula-drift-slow {
+  0% { transform: translate(0%, 0%) scale(1); }
+  50% { transform: translate(1.5%, -2.2%) scale(1.035); }
+  100% { transform: translate(0%, 0%) scale(1); }
+}
+
+@keyframes stardust-drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(18px, 26px); }
+}
+
+@keyframes dust-drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-24px, 17px); }
+}
+
+/* 流星效果 */
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  box-shadow: 0 0 6px #fff, 0 0 12px #67e8f9;
+  border-radius: 50%;
+  z-index: -1;
+  pointer-events: none;
+  animation: shoot 0.75s linear forwards;
+}
+
+@keyframes shoot {
+  0% { 
+    transform: translate(0, 0) scale(1); 
+    opacity: 0.9; 
+  }
+  100% { 
+    transform: translate(380px, 180px) scale(0.2); 
+    opacity: 0; 
+  }
+}
+
+/* ============================================
+   高级 Liquid Glass 系统
+   厚玻璃 · 折射 · 强光晕 · 浮动 · visionOS 质感
+   ============================================ */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: 
+    0 25px 70px -15px rgba(0, 0, 0, 0.55),
+    0 10px 25px -5px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+  transition: 
+    transform 0.45s cubic-bezier(0.23, 1, 0.32, 1), 
+    box-shadow 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+    border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 厚玻璃折射效果层 */
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.08) 0%,
+    rgba(255,255,255,0.015) 22%,
+    transparent 48%,
+    rgba(0,0,0,0.08) 76%,
+    rgba(0,0,0,0.18) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* 微弱彩虹折射边缘 */
+.glass::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    135deg,
+    rgba(103,232,249,0.08) 0%,
+    rgba(192,132,252,0.06) 40%,
+    rgba(244,114,182,0.05) 75%,
+    transparent 95%
+  );
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.glass:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 35px 90px -18px rgba(0, 0, 0, 0.65),
+    0 15px 35px -6px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255,255,255,0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+/* 超强玻璃（问答区主容器） */
+.glass-strong {
+  background: rgba(8, 10, 28, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(42px);
+  -webkit-backdrop-filter: blur(42px);
+  box-shadow: 
+    0 30px 85px -12px rgba(0, 0, 0, 0.7),
+    0 12px 30px -6px rgba(0, 0, 0, 0.4),
+    inset 0 1.5px 0 rgba(255,255,255,0.3),
+    inset 0 -1px 0 rgba(0,0,0,0.35);
+  position: relative;
+}
+
+.glass-strong::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.09) 0%,
+    rgba(255,255,255,0.01) 30%,
+    transparent 55%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 浮动悬浮卡片效果（梦幻感） */
+.glass-float {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
+              box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.glass-float:hover {
+  transform: translateY(-8px) rotateX(4deg) rotateY(3deg);
+  box-shadow: 
+    0 50px 110px -20px rgba(0, 0, 0, 0.75),
+    0 0 0 1px rgba(255,255,255,0.12),
+    0 0 70px -10px rgba(103,232,249,0.15);
+}
+
+/* 光晕边框效果 */
+.glass-holo {
+  position: relative;
+}
+
+.glass-holo::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent 25%,
+    rgba(103,232,249,0.25) 38%,
+    rgba(192,132,252,0.2) 52%,
+    transparent 70%
+  );
+  background-size: 220% 220%;
+  animation: holo-sweep 4.5s linear infinite;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes holo-sweep {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ============================================
+   梦幻科幻排版
+   ============================================ */
+
+/* 辉光文字增强版 */
+.glow-cyan {
+  text-shadow: 
+    0 0 12px rgba(103, 232, 249, 0.6),
+    0 0 28px rgba(103, 232, 249, 0.35),
+    0 0 45px rgba(103, 232, 249, 0.18);
+}
+
+.glow-purple {
+  text-shadow: 
+    0 0 12px rgba(192, 132, 252, 0.6),
+    0 0 28px rgba(192, 132, 252, 0.35);
+}
+
+/* 主宇宙标题 — 极致梦幻 */
+.cosmic-title {
+  font-size: clamp(3.8rem, 9vw, 7.8rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 0.86;
+  background: linear-gradient(148deg, 
+    #ffffff 0%, 
+    #e0e7ff 18%, 
+    #c0a8ff 38%, 
+    #a5b4fc 52%, 
+    #67e8f9 72%, 
+    #c084fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: 
+    drop-shadow(0 0 40px rgba(103, 232, 249, 0.45))
+    drop-shadow(0 0 80px rgba(192, 132, 252, 0.22));
+  position: relative;
+}
+
+/* 小标题仪式感 */
+.cosmic-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: #cbd5e1;
+  max-width: 42ch;
+}
+
+/* 科幻标签 */
+.sci-fi-label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  letter-spacing: 3.5px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   沉浸式问答元素（高度科幻）
+   ============================================ */
+
+/* 高级输入框 — 厚玻璃 + 扫描线 + 光环 */
+.cosmic-input {
+  background: rgba(4, 5, 14, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  line-height: 1.5;
+  padding: 18px 26px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 0 0 0 rgba(103, 232, 249, 0);
+}
+
+.cosmic-input:focus {
+  background: rgba(4, 5, 14, 0.85);
+  border-color: rgba(103, 232, 249, 0.55);
+  box-shadow: 
+    0 0 0 1px rgba(103, 232, 249, 0.2),
+    0 0 0 8px rgba(103, 232, 249, 0.08),
+    0 25px 60px -15px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+  outline: none;
+}
+
+.cosmic-input::placeholder {
+  color: #64748b;
+  letter-spacing: 0.3px;
+}
+
+/* 焦点扫描线动画 */
+.cosmic-input:focus {
+  background-image: linear-gradient(
+    to bottom,
+    transparent 48%,
+    rgba(103,232,249,0.06) 50%,
+    transparent 52%
+  );
+  background-size: 100% 220%;
+  animation: scanline 1.8s linear infinite;
+}
+
+@keyframes scanline {
+  0% { background-position: 0 -120%; }
+  100% { background-position: 0 300%; }
+}
+
+/* 科幻主按钮 — 更梦幻 */
+.cosmic-btn {
+  background: linear-gradient(135deg, #67e8f9 0%, #22d3ee 45%, #c084fc 100%);
+  color: #040408;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  font-size: 0.98rem;
+  padding: 16px 40px;
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 
+    0 0 0 1px rgba(255,255,255,0.3),
+    0 15px 40px -10px rgba(103,232,249,0.5);
+  border: none;
+}
+
+.cosmic-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 42%;
+  height: 100%;
+  background: linear-gradient(
+    95deg,
+    transparent,
+    rgba(255,255,255,0.65),
+    transparent
+  );
+  transition: 0.75s;
+  z-index: 1;
+}
+
+.cosmic-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 60%);
+  opacity: 0.3;
+}
+
+.cosmic-btn:hover {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow: 
+    0 0 0 1px rgba(255,255,255,0.45),
+    0 0 35px rgba(103, 232, 249, 0.7),
+    0 22px 55px -8px rgba(103,232,249,0.55);
+}
+
+.cosmic-btn:hover::before {
+  left: 240%;
+}
+
+.cosmic-btn:active {
+  transform: scale(0.985);
+  transition: transform 0.08s;
+}
+
+/* 次要按钮（玻璃风格） */
+.cosmic-btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #e0e7ff;
+  transition: all .3s cubic-bezier(0.23,1,0.32,1);
+}
+
+.cosmic-btn-ghost:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.45);
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   沉浸式回答卡片（梦幻全息感）
+   ============================================ */
+.answer-card {
+  animation: answer-enter 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.answer-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(103,232,249,0.6), transparent);
+  z-index: 3;
+}
+
+@keyframes answer-enter {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 回答完成后全息辉光 */
+.answer-card.revealed {
+  box-shadow: 
+    0 30px 85px -15px rgba(0, 0, 0, 0.75),
+    0 0 0 1px rgba(255,255,255,0.1),
+    0 0 65px -5px rgba(103,232,249,0.18),
+    0 0 110px -15px rgba(192,132,252,0.12);
+  transition: box-shadow 1.4s ease;
+}
+
+/* 回答正文 */
+.answer-body {
+  font-size: 15.8px;
+  line-height: 1.82;
+  color: #e2e8f0;
+}
+
+.answer-body p {
+  margin-bottom: 1.15em;
+}
+
+.answer-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* 关键概念标签 — 全息风格 */
+.cosmic-tag {
+  display: inline-block;
+  font-size: 10px;
+  padding: 3px 11px;
+  border-radius: 9999px;
+  background: rgba(103, 232, 249, 0.09);
+  color: #67e8f9;
+  border: 1px solid rgba(103, 232, 249, 0.35);
+  margin-right: 7px;
+  margin-bottom: 7px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+/* 问题回显 */
+.question-echo {
+  font-size: 12.5px;
+  color: #64748b;
+  font-family: ui-monospace, monospace;
+  letter-spacing: 0.8px;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.09);
+}
+
+/* ============================================
+   梦幻加载器（更科幻仪式感）
+   ============================================ */
+.cosmic-loader {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 6px 4px;
+}
+
+.loader-orb {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 28%, #fff, #67e8f9 35%, #1a2f5c);
+  box-shadow: 
+    0 0 18px #67e8f9,
+    0 0 38px rgba(103, 232, 249, 0.55),
+    0 0 65px rgba(192, 132, 252, 0.3);
+  animation: orb-pulse 1.9s ease-in-out infinite;
+}
+
+.loader-orb::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(103, 232, 249, 0.45);
+  animation: orb-ring 2.4s linear infinite;
+}
+
+.loader-orb::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: linear-gradient(transparent, rgba(255,255,255,0.25));
+  animation: orb-shimmer 1.4s linear infinite;
+}
+
+@keyframes orb-pulse {
+  0%, 100% { transform: scale(0.92); opacity: 0.82; }
+  50% { transform: scale(1.18); opacity: 1; }
+}
+
+@keyframes orb-ring {
+  0% { transform: scale(0.65); opacity: 0.65; }
+  50% { transform: scale(1.45); opacity: 0.08; }
+  100% { transform: scale(0.65); opacity: 0.65; }
+}
+
+@keyframes orb-shimmer {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 多轨道粒子系统 */
+.loader-particles {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.loader-particle {
+  position: absolute;
+  width: 3.5px;
+  height: 3.5px;
+  background: #c084fc;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #c084fc;
+  animation: particle-orbit 1.6s linear infinite;
+}
+
+.loader-particle:nth-child(2) { 
+  animation-duration: 2.1s; 
+  background: #67e8f9; 
+  box-shadow: 0 0 8px #67e8f9;
+}
+.loader-particle:nth-child(3) { animation-delay: -1.05s; }
+
+@keyframes particle-orbit {
+  0% { transform: rotate(0deg) translateX(15px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(15px) rotate(-360deg); }
+}
+
+/* 状态文字 */
+.loader-text {
+  font-family: ui-monospace, monospace;
+  letter-spacing: 3.5px;
+  font-size: 11.5px;
+}
+
+/* 回答标题 */
+.answer-title {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: #f8fafc;
+  margin-bottom: 14px;
+  filter: drop-shadow(0 0 8px rgba(103,232,249,0.2));
+}
+
+/* 对比板块 — 浮动感 + 更强仪式感 */
+.contrast-card {
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.23,1,0.32,1);
+}
+
+.contrast-card:hover {
+  transform: translateY(-5px);
+}
+
+.contrast-card.original {
+  border-color: rgba(103, 232, 249, 0.35);
+}
+
+.contrast-card.original::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(145deg, #67e8f9, #c084fc);
+  border-radius: 26px;
+  z-index: -1;
+  opacity: 0.12;
+  filter: blur(1px);
+}
+
+.contrast-card.now {
+  opacity: 0.93;
+}
+
+/* 科幻小节标题 */
+.section-label {
+  font-size: 10px;
+  letter-spacing: 3.8px;
+  text-transform: uppercase;
+  font-family: ui-monospace, monospace;
+  color: #64748b;
+}
+
+/* 响应式微调 */
+@media (max-width: 768px) {
+  .cosmic-title {
+    font-size: clamp(3rem, 9vw, 5.8rem);
+  }
+}
+
+/* 星星动画变体 */
+.stars .star {
+  animation-duration: 2.2s;
+}
+
+.stars .star:nth-child(3n) { animation-duration: 3.1s; }
+.stars .star:nth-child(5n) { animation-duration: 4s; }
