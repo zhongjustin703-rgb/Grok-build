@@ -1,0 +1,18 @@
+【复制下面虚线内全部文字，贴到有 imagine 的 Grok】
+
+----------开始----------
+请执行：
+
+curl -fsSL -o /home/workdir/run_segment1.sh https://raw.githubusercontent.com/zhongjustin703-rgb/Grok-build/main/run_segment1.sh
+chmod +x /home/workdir/run_segment1.sh
+
+然后打开该文件底部 IMAGINE_STEPS：
+1) 用 p08.png 做 create_asset + image_to_video，保存到
+   /home/workdir/artifacts/segment1_collectible/.imagine/08_chase_raw.mp4
+2) 02 默认用方案 H，不要图生
+3) 最后运行：
+   bash /home/workdir/run_segment1.sh
+
+标杆镜 01/03/05/06/07/09 禁止重生，只保留已有成品。
+验收：02单丁丁；08像p08追箱且一只白狗；06有开门+海景。
+----------结束----------
