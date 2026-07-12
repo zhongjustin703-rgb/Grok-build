@@ -1,0 +1,15 @@
+【iPad 请读】
+
+不要在 Grok 聊天里复制（点不动是正常的）。
+
+请离开聊天，打开 Safari，地址栏输入下面这一行，回车：
+
+https://raw.githubusercontent.com/zhongjustin703-rgb/Grok-build/main/run_segment1.txt
+
+打开后：
+1. 用手指按住文字
+2. 点「全选」
+3. 点「拷贝」
+4. 回到有 imagine 的 Grok，粘贴
+
+脚本完整版同目录还有：run_segment1.sh
